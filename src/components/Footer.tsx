@@ -1,21 +1,35 @@
 ﻿import React from 'react';
 import { Droplets, Phone, Mail, MapPin, Send, Globe, Heart } from 'lucide-react';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onNavigate?: (page: 'home' | 'about') => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+  const handleNav = (page: 'home' | 'about') => {
+    if (onNavigate) {
+      onNavigate(page);
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className="bg-slate-950 border-t border-slate-800/80 pt-16 pb-12 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800/80">
           {/* Col 1: Brand & Bio */}
           <div className="lg:col-span-2 space-y-4">
-            <a href="#" className="flex items-center gap-3">
+            <button
+              onClick={() => handleNav('home')}
+              className="flex items-center gap-3 text-left cursor-pointer"
+            >
               <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/25">
                 <Droplets className="w-5 h-5 text-white" />
               </div>
               <span className="text-2xl font-black text-white tracking-tight">
                 Gidro<span className="text-cyan-400">Go</span>
               </span>
-            </a>
+            </button>
 
             <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
               Ichimlik suvi yetkazib berish biznesini raqamlashtirish, buyurtmalarni avtomatlashtirish va moliyaviy ochiqlikni ta'minlash uchun yagona SaaS tizimi.
@@ -66,16 +80,31 @@ export const Footer: React.FC = () => {
           {/* Col 2: Navigation Links */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider font-mono">
-              Sahifa Bo'limlari
+              Sahifalar & Bo'limlar
             </h4>
             <ul className="space-y-2 text-xs text-slate-400">
-              <li><a href="#muammolar" className="hover:text-cyan-400 transition-colors">Biznesdagi Muammolar</a></li>
-              <li><a href="#yechim" className="hover:text-cyan-400 transition-colors">GidroGo Yechimi</a></li>
-              <li><a href="#jarayon" className="hover:text-cyan-400 transition-colors">6 Bosqichli Zanjir</a></li>
-              <li><a href="#dashboard" className="hover:text-cyan-400 transition-colors">Interaktiv Dashboard</a></li>
-              <li><a href="#auditoriya" className="hover:text-cyan-400 transition-colors">Kimlar uchun?</a></li>
-              <li><a href="#kalkulyator" className="hover:text-cyan-400 transition-colors">ROI Hisoblagich</a></li>
-              <li><a href="#faq" className="hover:text-cyan-400 transition-colors">Savol-Javoblar (FAQ)</a></li>
+              <li>
+                <button
+                  onClick={() => handleNav('home')}
+                  className="hover:text-cyan-400 transition-colors cursor-pointer text-left font-semibold text-cyan-300"
+                >
+                  Bosh sahifa
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNav('about')}
+                  className="hover:text-cyan-400 transition-colors cursor-pointer text-left font-semibold text-cyan-300"
+                >
+                  Biz haqimizda (Kompaniya)
+                </button>
+              </li>
+              <li><a href="#muammolar" onClick={() => handleNav('home')} className="hover:text-cyan-400 transition-colors">Biznesdagi Muammolar</a></li>
+              <li><a href="#yechim" onClick={() => handleNav('home')} className="hover:text-cyan-400 transition-colors">GidroGo Yechimi</a></li>
+              <li><a href="#jarayon" onClick={() => handleNav('home')} className="hover:text-cyan-400 transition-colors">6 Bosqichli Zanjir</a></li>
+              <li><a href="#dashboard" onClick={() => handleNav('home')} className="hover:text-cyan-400 transition-colors">Interaktiv Dashboard</a></li>
+              <li><a href="#kalkulyator" onClick={() => handleNav('home')} className="hover:text-cyan-400 transition-colors">ROI Hisoblagich</a></li>
+              <li><a href="#faq" onClick={() => handleNav('home')} className="hover:text-cyan-400 transition-colors">Savol-Javoblar (FAQ)</a></li>
             </ul>
           </div>
 
