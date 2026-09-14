@@ -1,5 +1,5 @@
-﻿import React, { useState, useEffect } from 'react';
-import { Droplets, Phone, Menu, X, ArrowRight, Sparkles } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Droplets, Phone, Menu, X, Sparkles } from 'lucide-react';
 
 interface NavbarProps {
   onOpenDemoModal: () => void;
@@ -111,26 +111,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemoModal }) => {
             </a>
           </nav>
 
-          {/* Right Action Buttons */}
-          <div className="hidden sm:flex items-center gap-4">
-            <a
-              href="tel:+998712000000"
-              className="text-xs font-semibold text-slate-300 hover:text-white flex items-center gap-1.5 py-2 px-3 rounded-lg hover:bg-slate-800/60 transition-all"
-            >
-              <Phone className="w-3.5 h-3.5 text-cyan-400" />
-              <span>+998 (71) 200-00-00</span>
-            </a>
 
-            <button
-              onClick={onOpenDemoModal}
-              className="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-bold text-white rounded-xl group bg-gradient-to-br from-cyan-500 via-blue-600 to-indigo-600 hover:from-cyan-400 hover:via-blue-500 hover:to-indigo-500 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 active:scale-95 transition-all cursor-pointer"
-            >
-              <span className="relative px-5 py-2.5 transition-all ease-in duration-75 rounded-[10px] bg-slate-950/30 group-hover:bg-transparent flex items-center gap-2">
-                <span>Bepul Demo Olish</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-              </span>
-            </button>
-          </div>
 
           {/* Mobile Menu Button */}
           <button
