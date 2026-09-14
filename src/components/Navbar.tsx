@@ -1,5 +1,5 @@
-﻿import React, { useState, useEffect } from 'react';
-import { Droplets, Menu, X, Sparkles } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Droplets, Menu, X, Sparkles, Phone } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { LanguageSelector } from './LanguageSelector';
 
@@ -280,6 +280,27 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenD
                 className="block text-sm font-semibold text-cyan-300 py-1"
               >
                 {t.nav.contact}
+              </a>
+            </div>
+
+            {/* Mobile Action Buttons */}
+            <div className="pt-3 border-t border-slate-800/80 space-y-2.5">
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenDemoModal();
+                }}
+                className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-sm shadow-lg shadow-cyan-500/25 flex items-center justify-center gap-2 cursor-pointer active:scale-98 transition-all"
+              >
+                <span>{t.nav.bannerCta}</span>
+              </button>
+              <a
+                href="tel:+998712000000"
+                className="w-full py-2.5 px-4 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-300 font-semibold flex items-center justify-center gap-2 hover:text-white hover:border-cyan-500/40 transition-all"
+              >
+                <Phone className="w-3.5 h-3.5 text-cyan-400" />
+                <span>+998 (71) 200-00-00</span>
               </a>
             </div>
           </nav>

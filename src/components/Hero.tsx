@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { 
   Play, 
   ArrowRight, 
@@ -40,7 +40,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemoModal }) => {
           </div>
 
           {/* Main Tagline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.15] mb-6">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.15] mb-6">
             {t.hero.tagline1}{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-blue-500">
               {t.hero.taglineHighlight}
@@ -123,7 +123,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemoModal }) => {
               {/* Left Column: Metrics & Live Dispatch */}
               <div className="lg:col-span-8 space-y-4">
                 {/* Metric cards */}
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
                   <div className="bg-slate-950/60 rounded-2xl p-3 border border-slate-800">
                     <p className="text-[11px] text-slate-400">{t.hero.todayOrders}</p>
                     <p className="text-xl sm:text-2xl font-bold text-white mt-1">{t.hero.ordersCount}</p>

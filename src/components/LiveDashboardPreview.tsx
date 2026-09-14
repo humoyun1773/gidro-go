@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { 
   BarChart3, 
   Truck, 
@@ -41,8 +41,8 @@ export const LiveDashboardPreview: React.FC = () => {
           </p>
         </div>
 
-        {/* Tab Switcher Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8">
+        {/* Navigation Tabs */}
+        <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-2 sm:pb-0 no-scrollbar sm:flex-wrap w-full mb-8">
           <button
             onClick={() => setActiveTab('kpi')}
             className={`px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 transition-all cursor-pointer ${
@@ -244,7 +244,7 @@ export const LiveDashboardPreview: React.FC = () => {
                 { id: 'ORD-9841', client: 'Malika Q.', items: '19L x 2', total: '36,000 UZS', status: 'Delivered' },
                 { id: 'ORD-9840', client: 'Apex Clinic', items: '19L x 4', total: '72,000 UZS', status: 'Delivered' },
               ].map((order) => (
-                <div key={order.id} className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between text-xs">
+                <div key={order.id} className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs">
                   <div>
                     <span className="font-mono text-cyan-400 font-bold mr-2">{order.id}</span>
                     <strong className="text-white">{order.client}</strong>

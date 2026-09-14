@@ -152,9 +152,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onOpenDemo
             </p>
           </div>
 
-          <div className="space-y-6 relative border-l border-cyan-500/30 ml-4 pl-6">
+          <div className="space-y-6 relative border-l border-cyan-500/30 ml-3 pl-5 sm:ml-6 sm:pl-8">
             <div className="relative">
-              <div className="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-cyan-400 ring-4 ring-slate-950"></div>
+              <div className="absolute -left-[27px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-cyan-400 ring-4 ring-slate-950"></div>
               <span className="text-xs font-mono text-cyan-400 font-bold">2024-yil — Boshlanish</span>
               <h3 className="text-lg font-bold text-white mt-1">Muammoni o'rganish & MVP</h3>
               <p className="text-sm text-slate-400 mt-1">
@@ -163,7 +163,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onOpenDemo
             </div>
 
             <div className="relative">
-              <div className="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-blue-500 ring-4 ring-slate-950"></div>
+              <div className="absolute -left-[27px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-blue-500 ring-4 ring-slate-950"></div>
               <span className="text-xs font-mono text-blue-400 font-bold">2025-yil — Kengayish</span>
               <h3 className="text-lg font-bold text-white mt-1">Smart GPS Dispatch & Onlayn To'lovlar</h3>
               <p className="text-sm text-slate-400 mt-1">
@@ -172,7 +172,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onOpenDemo
             </div>
 
             <div className="relative">
-              <div className="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-emerald-400 ring-4 ring-slate-950"></div>
+              <div className="absolute -left-[27px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-emerald-400 ring-4 ring-slate-950"></div>
               <span className="text-xs font-mono text-emerald-400 font-bold">2026-yil — Hozirgi kunda</span>
               <h3 className="text-lg font-bold text-white mt-1">Yagona SaaS Standarti</h3>
               <p className="text-sm text-slate-400 mt-1">
@@ -241,7 +241,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onOpenDemo
       {/* Office & Contact Box */}
       <section className="py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="p-5 sm:p-10 lg:p-12 rounded-3xl bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="space-y-4 text-center md:text-left">
               <h3 className="text-2xl sm:text-3xl font-bold text-white">
                 {t.about.contactTitle}
