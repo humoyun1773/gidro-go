@@ -12,6 +12,7 @@ import {
   Mail, 
   MapPin 
 } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 interface AboutPageProps {
   onNavigateHome: () => void;
@@ -19,6 +20,8 @@ interface AboutPageProps {
 }
 
 export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onOpenDemoModal }) => {
+  const { t } = useLanguage();
+
   return (
     <div className="pt-28 pb-20 bg-slate-950 text-slate-100 min-h-screen">
       {/* Hero Header */}
@@ -28,19 +31,18 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onOpenDemo
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs sm:text-sm font-semibold mb-6">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Biz haqimizda • GidroGo Tarixi va Missiyasi</span>
+            <span>{t.about.badge}</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-tight max-w-4xl mx-auto mb-6">
-            Ichimlik suvi sohasini{' '}
+            {t.about.heroTitle}{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-blue-500">
-              raqamlashtirish va osonlashtirish
-            </span>{' '}
-            uchun yaratilganmiz
+              {t.about.heroHighlight}
+            </span>
           </h1>
 
           <p className="text-base sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-8">
-            GidroGo — O'zbekistondagi suv ishlab chiqaruvchi fermalar, logistika jamoalari va millionlab iste'molchilarni yagona aqlli texnologik ekotizimga birlashtiruvchi birinchi SaaS platformasi.
+            {t.about.heroSub}
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4">
@@ -48,13 +50,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onOpenDemo
               onClick={onNavigateHome}
               className="px-6 py-3 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-500/50 text-white font-semibold text-sm transition-all cursor-pointer"
             >
-              &larr; Bosh sahifaga qaytish
+              {t.about.backBtn}
             </button>
             <button
               onClick={onOpenDemoModal}
               className="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-sm shadow-lg shadow-cyan-500/25 hover:from-cyan-400 hover:to-blue-500 transition-all cursor-pointer flex items-center gap-2"
             >
-              <span>Hamkorlikni boshlash</span>
+              <span>{t.about.partnerBtn}</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
@@ -70,9 +72,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onOpenDemo
               <div className="w-14 h-14 rounded-2xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center mb-6">
                 <Target className="w-7 h-7" />
               </div>
-              <h2 className="text-2xl font-bold text-white mb-4">Bizning Missiyamiz</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">{t.about.missionTitle}</h2>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                Suv yetkazib berish biznesi egalarini qog'oz daftarlar, yo'qolgan bo'sh idishlar va telefon chalkashliklaridan qutqarish. Har bir korxonaga yuqori daromadli, shaffof va avtomatlashtirilgan biznes yuritish imkonini berish.
+                {t.about.missionDesc}
               </p>
             </div>
 
@@ -81,9 +83,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onOpenDemo
               <div className="w-14 h-14 rounded-2xl bg-blue-500/20 text-blue-400 flex items-center justify-center mb-6">
                 <Eye className="w-7 h-7" />
               </div>
-              <h2 className="text-2xl font-bold text-white mb-4">Bizning Maqsadimiz (Vision)</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">{t.about.visionTitle}</h2>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                2028-yilgacha O'zbekiston va Markaziy Osiyodagi 500 dan ortiq suv yetkazib berish korxonalarini to'liq raqamlashtirish, aholiga toza ichimlik suvini 30 daqiqada yetib borishini standartga aylantirish.
+                {t.about.visionDesc}
               </p>
             </div>
           </div>
@@ -95,10 +97,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onOpenDemo
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight mb-4">
-              Bizning Asosiy Qadriyatlarimiz
+              {t.about.valuesTitle}
             </h2>
             <p className="text-slate-400 text-sm sm:text-base">
-              Har bir kod qatorimiz va har bir yangi funksiyamiz ortida turgan asosiy tamoyillar.
+              {t.about.valuesSub}
             </p>
           </div>
 
@@ -143,10 +145,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onOpenDemo
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight mb-3">
-              GidroGo Rivojlanish Yo'li
+              {t.about.timelineTitle}
             </h2>
             <p className="text-slate-400 text-sm sm:text-base">
-              Kichik startap g'oyasidan respublika darajasidagi SaaS ekotizimigacha.
+              {t.about.timelineSub}
             </p>
           </div>
 
@@ -186,10 +188,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onOpenDemo
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight mb-4">
-              GidroGo Asoschilari va Jamoasi
+              {t.about.teamTitle}
             </h2>
             <p className="text-slate-400 text-sm sm:text-base">
-              Loyiha ustida tajribali IT mutaxassislari, logistika injenerlari va mahsulot menejerlari ishlamoqda.
+              {t.about.teamSub}
             </p>
           </div>
 
@@ -200,7 +202,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onOpenDemo
               </div>
               <div>
                 <h3 className="text-lg font-bold text-white">Humoyun Anvarov</h3>
-                <p className="text-xs text-cyan-400 font-medium">Loyiha Asoschisi & Bosh Mahsulot Rahbari (CEO)</p>
+                <p className="text-xs text-cyan-400 font-medium">CEO & Founder</p>
               </div>
               <p className="text-xs text-slate-400 leading-relaxed">
                 Logistika tizimlari va SaaS platformalarini ishlab chiqish bo'yicha 5+ yillik tajribaga ega.
@@ -213,7 +215,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onOpenDemo
               </div>
               <div>
                 <h3 className="text-lg font-bold text-white">Davron Toshmatov</h3>
-                <p className="text-xs text-blue-400 font-medium">Bosh Texnik Direktor (CTO)</p>
+                <p className="text-xs text-blue-400 font-medium">CTO</p>
               </div>
               <p className="text-xs text-slate-400 leading-relaxed">
                 Yuqori yuklamali arxitekturalar, geo-monitoring va xavfsiz ma'lumotlar bazasi mutaxassisi.
@@ -226,7 +228,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onOpenDemo
               </div>
               <div>
                 <h3 className="text-lg font-bold text-white">Sardor Rahimov</h3>
-                <p className="text-xs text-purple-400 font-medium">Logistika & Mijozlar Bilan Ishlash Boshlig'i</p>
+                <p className="text-xs text-purple-400 font-medium">COO & Operations</p>
               </div>
               <p className="text-xs text-slate-400 leading-relaxed">
                 Fermalar va kuryerlik tarmog'ini boshqarish, korxonalarni tizimga sozlash bo'yicha ekspert.
@@ -242,10 +244,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onOpenDemo
           <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="space-y-4 text-center md:text-left">
               <h3 className="text-2xl sm:text-3xl font-bold text-white">
-                Biz bilan uchrashuv yoki konsultatsiya kerakmi?
+                {t.about.contactTitle}
               </h3>
               <p className="text-slate-300 text-sm max-w-md">
-                Toshkentdagi ofisimizga tashrif buyuring yoki telefon orqali mutaxassislarimiz bilan bog'laning.
+                {t.about.contactSub}
               </p>
               <div className="space-y-2 text-xs text-slate-400 pt-2">
                 <p className="flex items-center gap-2 justify-center md:justify-start">
@@ -268,13 +270,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onOpenDemo
                 onClick={onOpenDemoModal}
                 className="px-6 py-3.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm shadow-lg shadow-cyan-500/25 transition-all cursor-pointer"
               >
-                Bepul Demo Olish
+                {t.about.partnerBtn}
               </button>
               <button
                 onClick={onNavigateHome}
                 className="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm transition-all cursor-pointer"
               >
-                Bosh sahifa
+                {t.nav.home}
               </button>
             </div>
           </div>

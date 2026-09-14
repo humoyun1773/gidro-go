@@ -1,8 +1,10 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Send, Phone, MessageSquare, CheckCircle2, Sparkles, Check } from 'lucide-react';
 import type { LeadFormData } from '../types';
+import { useLanguage } from '../context/LanguageContext';
 
 export const LeadFormSection: React.FC = () => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState<LeadFormData>({
     fullName: '',
     phone: '+998 ',
@@ -51,18 +53,18 @@ export const LeadFormSection: React.FC = () => {
             <div className="lg:col-span-5 space-y-6">
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-semibold">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>14 kunlik bepul sinov davri</span>
+                <span>{t.leadForm.badge}</span>
               </div>
 
               <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight leading-tight">
-                Biznesingizni Bugun{' '}
+                {t.leadForm.title}{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
-                  Raqamlashtiring
+                  {t.leadForm.titleHighlight}
                 </span>
               </h2>
 
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                Murojaat qoldiring — mutaxassislarimiz tizimni korxonangizga moslashtirib, 1 kunda to'liq o'rnatib berishadi.
+                {t.leadForm.subtitle}
               </p>
 
               <div className="space-y-3 pt-2">
@@ -70,25 +72,25 @@ export const LeadFormSection: React.FC = () => {
                   <div className="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
                     <Check className="w-3.5 h-3.5" />
                   </div>
-                  <span>14 kun barcha imkoniyatlar mutlaqo bepul</span>
+                  <span>{t.leadForm.check1}</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-slate-300">
                   <div className="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
                     <Check className="w-3.5 h-3.5" />
                   </div>
-                  <span>Xodimlarni bepul o'qitish va sozlash</span>
+                  <span>{t.leadForm.check2}</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-slate-300">
                   <div className="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
                     <Check className="w-3.5 h-3.5" />
                   </div>
-                  <span>24/7 shaxsiy texnik menejer yordami</span>
+                  <span>{t.leadForm.check3}</span>
                 </div>
               </div>
 
               {/* Direct channels */}
               <div className="pt-6 border-t border-slate-800 space-y-3">
-                <p className="text-xs text-slate-400 uppercase font-mono">Tezkor aloqa:</p>
+                <p className="text-xs text-slate-400 uppercase font-mono">{t.leadForm.quickContact}:</p>
                 <div className="flex flex-col sm:flex-row gap-3">
                   <a
                     href="tel:+998712000000"
@@ -104,7 +106,7 @@ export const LeadFormSection: React.FC = () => {
                     className="flex-1 p-3 rounded-xl bg-cyan-950/40 border border-cyan-800/40 hover:bg-cyan-900/40 text-xs text-cyan-300 flex items-center gap-2.5 transition-all font-semibold"
                   >
                     <MessageSquare className="w-4 h-4 text-cyan-400" />
-                    <span>Telegram orqali yozish</span>
+                    <span>{t.leadForm.tgChat}</span>
                   </a>
                 </div>
               </div>
@@ -117,32 +119,32 @@ export const LeadFormSection: React.FC = () => {
                   <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-10 h-10" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white">Murojaatingiz qabul qilindi!</h3>
+                  <h3 className="text-2xl font-bold text-white">{t.leadForm.successTitle}</h3>
                   <p className="text-slate-300 text-sm max-w-md mx-auto">
-                    Katta rahmat! GidroGo mutaxassisi 15 daqiqa ichida <span className="text-cyan-400 font-bold">{formData.phone}</span> raqamiga qo'ng'iroq qiladi yoki Telegramingizga yozadi.
+                    {t.leadForm.successDesc} <span className="text-cyan-400 font-bold">{formData.phone}</span>
                   </p>
                   <div className="pt-4">
                     <button
                       onClick={handleReset}
                       className="px-6 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-white transition-all cursor-pointer"
                     >
-                      Yana boshqa ariza yuborish
+                      {t.leadForm.resetBtn}
                     </button>
                   </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <h3 className="text-lg font-bold text-white mb-2">Bepul Konsultatsiya & Demo Olish</h3>
+                  <h3 className="text-lg font-bold text-white mb-2">{t.leadForm.formTitle}</h3>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-medium text-slate-300 mb-1.5">
-                        Ismingiz va Familiyangiz *
+                        {t.leadForm.nameLabel} *
                       </label>
                       <input
                         type="text"
                         required
-                        placeholder="Masalan: Sardor Aliyev"
+                        placeholder={t.leadForm.namePlaceholder}
                         value={formData.fullName}
                         onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                         className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
@@ -151,7 +153,7 @@ export const LeadFormSection: React.FC = () => {
 
                     <div>
                       <label className="block text-xs font-medium text-slate-300 mb-1.5">
-                        Telefon raqamingiz *
+                        {t.leadForm.phoneLabel} *
                       </label>
                       <input
                         type="tel"
@@ -167,11 +169,11 @@ export const LeadFormSection: React.FC = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-medium text-slate-300 mb-1.5">
-                        Kompaniya yoki Ferma nomi
+                        {t.leadForm.companyLabel}
                       </label>
                       <input
                         type="text"
-                        placeholder="Masalan: Oqdaryo Suv"
+                        placeholder={t.leadForm.companyPlaceholder}
                         value={formData.companyName}
                         onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
                         className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
@@ -180,45 +182,42 @@ export const LeadFormSection: React.FC = () => {
 
                     <div>
                       <label className="block text-xs font-medium text-slate-300 mb-1.5">
-                        Biznes turi
+                        {t.leadForm.typeLabel}
                       </label>
                       <select
                         value={formData.businessType}
                         onChange={(e) => setFormData({ ...formData, businessType: e.target.value })}
                         className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-white text-xs focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
                       >
-                        <option value="Suv yetkazib berish korxonasi (Ferma)">Suv korxonasi (Ferma / Zavod)</option>
-                        <option value="Dastavka xizmati / Kuryerlik tarmog'i">Dastavka / Logistika tarmog'i</option>
-                        <option value="Yangi boshlanayotgan suv biznesi">Yangi boshlanayotgan biznes</option>
-                        <option value="Boshqa">Boshqa soha</option>
+                        {t.leadForm.types.map((tp, idx) => (
+                          <option key={idx} value={tp}>{tp}</option>
+                        ))}
                       </select>
                     </div>
                   </div>
 
                   <div>
                     <label className="block text-xs font-medium text-slate-300 mb-1.5">
-                      Kunlik o'rtacha hajm (19L idishlar soni)
+                      {t.leadForm.volumeLabel}
                     </label>
                     <select
                       value={formData.dailyBottles}
                       onChange={(e) => setFormData({ ...formData, dailyBottles: e.target.value })}
                       className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-white text-xs focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
                     >
-                      <option value="50 donagacha">50 donagacha / kun</option>
-                      <option value="50-200 dona">50 - 200 dona / kun</option>
-                      <option value="200-500 dona">200 - 500 dona / kun</option>
-                      <option value="500-1500 dona">500 - 1,500 dona / kun</option>
-                      <option value="1500+ dona">1,500+ dona / kun</option>
+                      {t.leadForm.volumes.map((vol, idx) => (
+                        <option key={idx} value={vol}>{vol}</option>
+                      ))}
                     </select>
                   </div>
 
                   <div>
                     <label className="block text-xs font-medium text-slate-300 mb-1.5">
-                      Qo'shimcha savol yoki istak (ixtiyoriy)
+                      {t.leadForm.msgLabel}
                     </label>
                     <textarea
                       rows={3}
-                      placeholder="Qo'shimcha tafsilotlar yoki savolingiz bo'lsa yozing..."
+                      placeholder={t.leadForm.msgPlaceholder}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       className="w-full px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
@@ -233,18 +232,18 @@ export const LeadFormSection: React.FC = () => {
                     {isSubmitting ? (
                       <span className="inline-flex items-center gap-2">
                         <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
-                        Yuborilmoqda...
+                        {t.leadForm.submittingBtn}
                       </span>
                     ) : (
                       <>
-                        <span>Bepul Demo va Konsultatsiyani Olish</span>
+                        <span>{t.leadForm.submitBtn}</span>
                         <Send className="w-4 h-4" />
                       </>
                     )}
                   </button>
 
                   <p className="text-[11px] text-slate-500 text-center">
-                    Tugmani bosish orqali maxfiylik siyosatiga rozilik bildirasiz. Ma'lumotlaringiz xavfsiz saqlanadi.
+                    {t.leadForm.privacyNotice}
                   </p>
                 </form>
               )}

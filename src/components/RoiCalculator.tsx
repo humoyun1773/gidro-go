@@ -1,11 +1,13 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Calculator, ArrowRight, DollarSign, Clock, ShieldCheck } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 interface RoiCalculatorProps {
   onOpenDemoModal: () => void;
 }
 
 export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenDemoModal }) => {
+  const { t } = useLanguage();
   const [dailyBottles, setDailyBottles] = useState<number>(250);
   const [vehicles, setVehicles] = useState<number>(4);
 
@@ -26,18 +28,18 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenDemoModal })
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-semibold mb-4">
             <Calculator className="w-3.5 h-3.5" />
-            <span>Interaktiv ROI Hisoblagich</span>
+            <span>{t.calculator.badge}</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-5">
-            Biznesingiz GidroGo Bilan{' '}
+            {t.calculator.title}{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
-              Qancha Tejashi Mumkin?
+              {t.calculator.titleHighlight}
             </span>
           </h2>
 
           <p className="text-slate-400 text-base sm:text-lg leading-relaxed">
-            Kunlik ko'rsatkichlaringizni tanlang va har oy qancha mablag' hamda ish soatlarini tejashingizni hisoblang.
+            {t.calculator.subtitle}
           </p>
         </div>
 
@@ -49,10 +51,10 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenDemoModal })
               <div>
                 <div className="flex justify-between items-center mb-3">
                   <label className="text-sm font-bold text-white">
-                    Kunlik o'rtacha yetkaziladigan 19L suv soni:
+                    {t.calculator.bottlesLabel}
                   </label>
                   <span className="text-cyan-400 font-mono font-bold text-lg px-3 py-1 bg-slate-950 rounded-xl border border-slate-800">
-                    {formatNumber(dailyBottles)} dona
+                    {formatNumber(dailyBottles)}
                   </span>
                 </div>
                 <input
@@ -65,9 +67,9 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenDemoModal })
                   className="w-full h-2.5 bg-slate-950 rounded-lg appearance-none cursor-pointer accent-cyan-400"
                 />
                 <div className="flex justify-between text-[11px] text-slate-500 mt-1 font-mono">
-                  <span>30 dona</span>
-                  <span>750 dona</span>
-                  <span>1,500+ dona</span>
+                  <span>30</span>
+                  <span>750</span>
+                  <span>1,500+</span>
                 </div>
               </div>
 
@@ -75,10 +77,10 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenDemoModal })
               <div>
                 <div className="flex justify-between items-center mb-3">
                   <label className="text-sm font-bold text-white">
-                    Dastavka mashinalari soni:
+                    {t.calculator.vehiclesLabel}
                   </label>
                   <span className="text-cyan-400 font-mono font-bold text-lg px-3 py-1 bg-slate-950 rounded-xl border border-slate-800">
-                    {vehicles} ta avtomobil
+                    {vehicles}
                   </span>
                 </div>
                 <input
@@ -91,17 +93,17 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenDemoModal })
                   className="w-full h-2.5 bg-slate-950 rounded-lg appearance-none cursor-pointer accent-cyan-400"
                 />
                 <div className="flex justify-between text-[11px] text-slate-500 mt-1 font-mono">
-                  <span>1 ta</span>
-                  <span>10 ta</span>
-                  <span>20 ta</span>
+                  <span>1</span>
+                  <span>10</span>
+                  <span>20</span>
                 </div>
               </div>
 
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 text-xs text-slate-400 space-y-1">
-                <p className="font-semibold text-slate-300">💡 Hisob-kitob asoslari:</p>
-                <p>• Kuryerlarning optimallashtirilgan marshruti (kuniga ~20-30 km yoqilg'i tejalishi)</p>
-                <p>• Yo'qolmaydigan 19L bo'sh idishlar (tara) hisoboti</p>
-                <p>• Avtomatik CRM orqali mijozlarning qayta buyurtma berish chastotasi ortishi</p>
+                <p className="font-semibold text-slate-300">💡 {t.calculator.totalGainsTitle}</p>
+                <p>• {t.calculator.savedHours} {savedHoursPerMonth} h</p>
+                <p>• {t.calculator.savedFuel} ~{formatNumber(fuelSavingUzs)}</p>
+                <p>• {t.calculator.savedBottles} {lostBottlesSavedCount}</p>
               </div>
             </div>
 
@@ -109,38 +111,38 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenDemoModal })
             <div className="lg:col-span-6 rounded-2xl bg-gradient-to-br from-slate-950 to-slate-900 border border-cyan-500/30 p-6 sm:p-8 space-y-6 shadow-xl relative overflow-hidden">
               <div className="absolute top-0 right-0 p-4">
                 <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                  Oylik Taxminiy Foyda
+                  {t.calculator.gainsBadge}
                 </span>
               </div>
 
               <div>
-                <p className="text-xs text-slate-400">Oylik jami tejaladigan va qo'shimcha daromad:</p>
+                <p className="text-xs text-slate-400">{t.calculator.totalGainsTitle}</p>
                 <p className="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 mt-1">
-                  +{formatNumber(totalMonthlyGain)} so'm
+                  +{formatNumber(totalMonthlyGain)}
                 </p>
-                <p className="text-xs text-slate-400 mt-1">har oy biznesingiz kassasida qoladi</p>
+                <p className="text-xs text-slate-400 mt-1">{t.calculator.totalGainsSub}</p>
               </div>
 
               <div className="space-y-3 text-xs border-t border-slate-800/80 pt-4">
                 <div className="flex items-center justify-between">
                   <span className="text-slate-400 flex items-center gap-1.5">
-                    <Clock className="w-3.5 h-3.5 text-cyan-400" /> Tejalgan haydovchilar vaqti:
+                    <Clock className="w-3.5 h-3.5 text-cyan-400" /> {t.calculator.savedHours}
                   </span>
-                  <span className="font-bold text-white">{savedHoursPerMonth} soat / oy</span>
+                  <span className="font-bold text-white">{savedHoursPerMonth} h</span>
                 </div>
 
                 <div className="flex items-center justify-between">
                   <span className="text-slate-400 flex items-center gap-1.5">
-                    <DollarSign className="w-3.5 h-3.5 text-emerald-400" /> Tejalgan benzin & yoqilg'i:
+                    <DollarSign className="w-3.5 h-3.5 text-emerald-400" /> {t.calculator.savedFuel}
                   </span>
-                  <span className="font-bold text-white">~{formatNumber(fuelSavingUzs)} so'm</span>
+                  <span className="font-bold text-white">~{formatNumber(fuelSavingUzs)}</span>
                 </div>
 
                 <div className="flex items-center justify-between">
                   <span className="text-slate-400 flex items-center gap-1.5">
-                    <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" /> Saqlab qolingan 19L idishlar:
+                    <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" /> {t.calculator.savedBottles}
                   </span>
-                  <span className="font-bold text-emerald-400">{lostBottlesSavedCount} dona ({formatNumber(lostBottlesValueUzs)} so'm)</span>
+                  <span className="font-bold text-emerald-400">{lostBottlesSavedCount} ({formatNumber(lostBottlesValueUzs)})</span>
                 </div>
               </div>
 
@@ -149,7 +151,7 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenDemoModal })
                   onClick={onOpenDemoModal}
                   className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-sm shadow-lg shadow-cyan-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <span>Ushbu Tejamkorlikka Erishish</span>
+                  <span>{t.calculator.ctaBtn}</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>

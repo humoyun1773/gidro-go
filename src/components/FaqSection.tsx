@@ -1,8 +1,9 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { ChevronDown, HelpCircle, MessageSquare } from 'lucide-react';
-import { FAQ_DATA } from '../data/landingData';
+import { useLanguage } from '../context/LanguageContext';
 
 export const FaqSection: React.FC = () => {
+  const { t } = useLanguage();
   const [openId, setOpenId] = useState<string | null>('faq-1');
 
   const toggleFaq = (id: string) => {
@@ -15,24 +16,24 @@ export const FaqSection: React.FC = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-semibold mb-4">
             <HelpCircle className="w-3.5 h-3.5" />
-            <span>Savollaringiz bormi?</span>
+            <span>{t.faq.badge}</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-5">
-            Tez-Tez So'raladigan{' '}
+            {t.faq.title}{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
-              Savollar (FAQ)
+              {t.faq.titleHighlight}
             </span>
           </h2>
 
           <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-            GidroGo tizimiga ulanish, narxlar va ishlash tamoyillari bo'yicha eng ko'p beriladigan savollarga javoblar.
+            {t.faq.subtitle}
           </p>
         </div>
 
         {/* FAQ Accordion */}
         <div className="space-y-4">
-          {FAQ_DATA.map((item) => {
+          {t.faq.items.map((item) => {
             const isOpen = openId === item.id;
             return (
               <div
@@ -73,8 +74,8 @@ export const FaqSection: React.FC = () => {
         {/* Still have questions banner */}
         <div className="mt-12 p-6 rounded-2xl bg-slate-950/80 border border-slate-800 text-center flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-left">
-            <h4 className="text-white font-bold text-base">Savolingizga javob topmadingizmi?</h4>
-            <p className="text-xs text-slate-400">Bizning mutaxassislarimiz barcha savollaringizga 15 daqiqada javob berishadi.</p>
+            <h4 className="text-white font-bold text-base">{t.faq.unansweredTitle}</h4>
+            <p className="text-xs text-slate-400">{t.faq.unansweredSub}</p>
           </div>
           <a
             href="https://t.me/gidrogo_support"
@@ -83,7 +84,7 @@ export const FaqSection: React.FC = () => {
             className="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-300 hover:text-white font-semibold text-xs transition-all flex items-center gap-2 shrink-0 border border-slate-700"
           >
             <MessageSquare className="w-4 h-4 text-cyan-400" />
-            <span>Telegramda yozish</span>
+            <span>{t.faq.unansweredBtn}</span>
           </a>
         </div>
       </div>

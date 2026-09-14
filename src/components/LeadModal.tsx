@@ -1,5 +1,6 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { X, Send, CheckCircle2, Sparkles } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 interface LeadModalProps {
   isOpen: boolean;
@@ -7,6 +8,7 @@ interface LeadModalProps {
 }
 
 export const LeadModal: React.FC<LeadModalProps> = ({ isOpen, onClose }) => {
+  const { t } = useLanguage();
   const [fullName, setFullName] = useState('');
   const [phone, setPhone] = useState('+998 ');
   const [company, setCompany] = useState('');
@@ -46,41 +48,41 @@ export const LeadModal: React.FC<LeadModalProps> = ({ isOpen, onClose }) => {
             <div className="w-14 h-14 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
               <CheckCircle2 className="w-8 h-8" />
             </div>
-            <h3 className="text-2xl font-bold text-white">Arizangiz qabul qilindi!</h3>
+            <h3 className="text-2xl font-bold text-white">{t.leadForm.successTitle}</h3>
             <p className="text-slate-300 text-xs sm:text-sm">
-              Mutaxassisimiz 15 daqiqa ichida <span className="text-cyan-400 font-bold">{phone}</span> raqamingizga bog'lanadi va tizimning to'liq demosini ko'rsatadi.
+              {t.leadForm.successDesc} <span className="text-cyan-400 font-bold">{phone}</span>
             </p>
             <button
               onClick={handleClose}
               className="px-6 py-2.5 rounded-xl bg-cyan-500 text-slate-950 font-bold text-xs hover:bg-cyan-400 transition-all cursor-pointer"
             >
-              Tushunarli
+              OK
             </button>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="flex items-center gap-2 text-cyan-400 text-xs font-semibold uppercase tracking-wider">
               <Sparkles className="w-4 h-4" />
-              <span>Tezkor Demo & Konsultatsiya</span>
+              <span>{t.leadForm.badge}</span>
             </div>
 
             <h3 className="text-xl sm:text-2xl font-black text-white">
-              GidroGo Demo Tizimiga Ulaning
+              {t.leadForm.formTitle}
             </h3>
 
             <p className="text-xs text-slate-400 leading-relaxed">
-              Ma'lumotlaringizni qoldiring, biz 14 kunlik bepul sinov hisobini ochib beramiz.
+              {t.leadForm.subtitle}
             </p>
 
             <div className="space-y-3 pt-2">
               <div>
                 <label className="block text-xs font-medium text-slate-300 mb-1">
-                  Ismingiz *
+                  {t.leadForm.nameLabel} *
                 </label>
                 <input
                   type="text"
                   required
-                  placeholder="Ismingizni kiriting"
+                  placeholder={t.leadForm.namePlaceholder}
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-cyan-500 transition-all"
@@ -89,7 +91,7 @@ export const LeadModal: React.FC<LeadModalProps> = ({ isOpen, onClose }) => {
 
               <div>
                 <label className="block text-xs font-medium text-slate-300 mb-1">
-                  Telefon raqamingiz *
+                  {t.leadForm.phoneLabel} *
                 </label>
                 <input
                   type="tel"
@@ -103,11 +105,11 @@ export const LeadModal: React.FC<LeadModalProps> = ({ isOpen, onClose }) => {
 
               <div>
                 <label className="block text-xs font-medium text-slate-300 mb-1">
-                  Kompaniya yoki Ferma nomi (ixtiyoriy)
+                  {t.leadForm.companyLabel}
                 </label>
                 <input
                   type="text"
-                  placeholder="Masalan: Aqua Star"
+                  placeholder={t.leadForm.companyPlaceholder}
                   value={company}
                   onChange={(e) => setCompany(e.target.value)}
                   className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-cyan-500 transition-all"
@@ -120,7 +122,7 @@ export const LeadModal: React.FC<LeadModalProps> = ({ isOpen, onClose }) => {
               disabled={isSubmitting}
               className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-xs sm:text-sm shadow-lg shadow-cyan-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 mt-4"
             >
-              {isSubmitting ? 'Tayyorlanmoqda...' : '14 Kunlik Bepul Hisob Olish'}
+              {isSubmitting ? t.leadForm.submittingBtn : t.leadForm.submitBtn}
               <Send className="w-4 h-4" />
             </button>
           </form>

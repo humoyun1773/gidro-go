@@ -1,5 +1,7 @@
 ﻿import React, { useState, useEffect } from 'react';
 import { Droplets, Menu, X, Sparkles } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
+import { LanguageSelector } from './LanguageSelector';
 
 interface NavbarProps {
   currentPage: 'home' | 'about';
@@ -8,6 +10,7 @@ interface NavbarProps {
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenDemoModal }) => {
+  const { t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -41,12 +44,12 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenD
       <div className="bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 text-white text-xs py-1.5 px-4 text-center font-medium tracking-wide">
         <span className="inline-flex items-center gap-1.5 justify-center">
           <Sparkles className="w-3.5 h-3.5 animate-pulse text-cyan-200" />
-          <span>Suv yetkazib berish biznesingiz uchun 14 kunlik bepul sinov davri!</span>
+          <span>{t.nav.bannerText}</span>
           <button
             onClick={onOpenDemoModal}
             className="underline underline-offset-2 ml-2 hover:text-cyan-100 font-semibold cursor-pointer"
           >
-            Demo so'rash &rarr;
+            {t.nav.bannerCta}
           </button>
         </span>
       </div>
@@ -73,7 +76,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenD
           </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-7">
+          <nav className="hidden lg:flex items-center gap-6">
             {/* Main Page Switches */}
             <button
               onClick={() => handleNavClick('home')}
@@ -83,7 +86,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenD
                   : 'text-slate-300 hover:text-white'
               }`}
             >
-              Bosh sahifa
+              {t.nav.home}
             </button>
 
             <button
@@ -94,7 +97,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenD
                   : 'text-slate-300 hover:text-white'
               }`}
             >
-              Biz haqimizda
+              {t.nav.about}
             </button>
 
             <span className="w-px h-5 bg-slate-800"></span>
@@ -106,19 +109,19 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenD
                   href="#muammolar"
                   className="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors"
                 >
-                  Muammolar
+                  {t.nav.problems}
                 </a>
                 <a
                   href="#yechim"
                   className="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors"
                 >
-                  Yechim
+                  {t.nav.solution}
                 </a>
                 <a
                   href="#jarayon"
                   className="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors"
                 >
-                  Qanday ishlaydi?
+                  {t.nav.howItWorks}
                 </a>
                 <a
                   href="#dashboard"
@@ -128,31 +131,31 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenD
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
                   </span>
-                  Dashboard
+                  {t.nav.dashboard}
                 </a>
                 <a
                   href="#auditoriya"
                   className="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors"
                 >
-                  Kimlar uchun?
+                  {t.nav.audience}
                 </a>
                 <a
                   href="#kalkulyator"
                   className="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors"
                 >
-                  Kalkulyator
+                  {t.nav.calculator}
                 </a>
                 <a
                   href="#faq"
                   className="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors"
                 >
-                  FAQ
+                  {t.nav.faq}
                 </a>
                 <a
                   href="#aloqa"
                   className="text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition-colors"
                 >
-                  Aloqa
+                  {t.nav.contact}
                 </a>
               </>
             ) : (
@@ -161,19 +164,27 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenD
                 onClick={() => handleNavClick('home')}
                 className="text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition-colors"
               >
-                Biz bilan bog'lanish
+                {t.nav.contactUs}
               </a>
             )}
+
+            {/* Language Switcher */}
+            <div className="ml-2">
+              <LanguageSelector />
+            </div>
           </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors cursor-pointer"
-            aria-label="Menyu"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile Right Bar: Language + Menu */}
+          <div className="flex lg:hidden items-center gap-2">
+            <LanguageSelector />
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors cursor-pointer"
+              aria-label="Menyu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -187,7 +198,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenD
                 currentPage === 'home' ? 'text-cyan-400' : 'text-slate-300'
               }`}
             >
-              Bosh sahifa
+              {t.nav.home}
             </button>
 
             <button
@@ -196,7 +207,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenD
                 currentPage === 'about' ? 'text-cyan-400' : 'text-slate-300'
               }`}
             >
-              Biz haqimizda
+              {t.nav.about}
             </button>
 
             <div className="pt-2 border-t border-slate-800/80 space-y-2">
@@ -208,7 +219,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenD
                 }}
                 className="block text-sm font-medium text-slate-400 hover:text-cyan-400 py-1"
               >
-                Muammolar
+                {t.nav.problems}
               </a>
               <a
                 href="#yechim"
@@ -218,7 +229,17 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenD
                 }}
                 className="block text-sm font-medium text-slate-400 hover:text-cyan-400 py-1"
               >
-                Bizning Yechimimiz
+                {t.nav.solution}
+              </a>
+              <a
+                href="#jarayon"
+                onClick={() => {
+                  handleNavClick('home');
+                  setMobileMenuOpen(false);
+                }}
+                className="block text-sm font-medium text-slate-400 hover:text-cyan-400 py-1"
+              >
+                {t.nav.howItWorks}
               </a>
               <a
                 href="#dashboard"
@@ -228,7 +249,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenD
                 }}
                 className="block text-sm font-medium text-cyan-400 py-1"
               >
-                Live Dashboard
+                {t.nav.dashboard}
               </a>
               <a
                 href="#kalkulyator"
@@ -238,7 +259,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenD
                 }}
                 className="block text-sm font-medium text-slate-400 hover:text-cyan-400 py-1"
               >
-                Foyda Kalkulyatori
+                {t.nav.calculator}
               </a>
               <a
                 href="#faq"
@@ -248,7 +269,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenD
                 }}
                 className="block text-sm font-medium text-slate-400 hover:text-cyan-400 py-1"
               >
-                FAQ (Savol-javob)
+                {t.nav.faq}
               </a>
               <a
                 href="#aloqa"
@@ -258,7 +279,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenD
                 }}
                 className="block text-sm font-semibold text-cyan-300 py-1"
               >
-                Aloqa va Konsultatsiya
+                {t.nav.contact}
               </a>
             </div>
           </nav>

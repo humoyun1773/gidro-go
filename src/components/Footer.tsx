@@ -1,11 +1,14 @@
-﻿import React from 'react';
+import React from 'react';
 import { Droplets, Phone, Mail, MapPin, Send, Globe, Heart } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 interface FooterProps {
   onNavigate?: (page: 'home' | 'about') => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+  const { t } = useLanguage();
+
   const handleNav = (page: 'home' | 'about') => {
     if (onNavigate) {
       onNavigate(page);
@@ -32,7 +35,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </button>
 
             <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
-              Ichimlik suvi yetkazib berish biznesini raqamlashtirish, buyurtmalarni avtomatlashtirish va moliyaviy ochiqlikni ta'minlash uchun yagona SaaS tizimi.
+              {t.footer.desc}
             </p>
 
             <div className="flex items-center gap-3 pt-2">
@@ -80,7 +83,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           {/* Col 2: Navigation Links */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider font-mono">
-              Sahifalar & Bo'limlar
+              {t.footer.pagesCol}
             </h4>
             <ul className="space-y-2 text-xs text-slate-400">
               <li>
@@ -88,7 +91,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   onClick={() => handleNav('home')}
                   className="hover:text-cyan-400 transition-colors cursor-pointer text-left font-semibold text-cyan-300"
                 >
-                  Bosh sahifa
+                  {t.nav.home}
                 </button>
               </li>
               <li>
@@ -96,22 +99,22 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   onClick={() => handleNav('about')}
                   className="hover:text-cyan-400 transition-colors cursor-pointer text-left font-semibold text-cyan-300"
                 >
-                  Biz haqimizda (Kompaniya)
+                  {t.nav.about}
                 </button>
               </li>
-              <li><a href="#muammolar" onClick={() => handleNav('home')} className="hover:text-cyan-400 transition-colors">Biznesdagi Muammolar</a></li>
-              <li><a href="#yechim" onClick={() => handleNav('home')} className="hover:text-cyan-400 transition-colors">GidroGo Yechimi</a></li>
-              <li><a href="#jarayon" onClick={() => handleNav('home')} className="hover:text-cyan-400 transition-colors">6 Bosqichli Zanjir</a></li>
-              <li><a href="#dashboard" onClick={() => handleNav('home')} className="hover:text-cyan-400 transition-colors">Interaktiv Dashboard</a></li>
-              <li><a href="#kalkulyator" onClick={() => handleNav('home')} className="hover:text-cyan-400 transition-colors">ROI Hisoblagich</a></li>
-              <li><a href="#faq" onClick={() => handleNav('home')} className="hover:text-cyan-400 transition-colors">Savol-Javoblar (FAQ)</a></li>
+              <li><a href="#muammolar" onClick={() => handleNav('home')} className="hover:text-cyan-400 transition-colors">{t.nav.problems}</a></li>
+              <li><a href="#yechim" onClick={() => handleNav('home')} className="hover:text-cyan-400 transition-colors">{t.nav.solution}</a></li>
+              <li><a href="#jarayon" onClick={() => handleNav('home')} className="hover:text-cyan-400 transition-colors">{t.nav.howItWorks}</a></li>
+              <li><a href="#dashboard" onClick={() => handleNav('home')} className="hover:text-cyan-400 transition-colors">{t.nav.dashboard}</a></li>
+              <li><a href="#kalkulyator" onClick={() => handleNav('home')} className="hover:text-cyan-400 transition-colors">{t.nav.calculator}</a></li>
+              <li><a href="#faq" onClick={() => handleNav('home')} className="hover:text-cyan-400 transition-colors">{t.nav.faq}</a></li>
             </ul>
           </div>
 
           {/* Col 3: Legal & Platform */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider font-mono">
-              Xizmat & Xavfsizlik
+              {t.footer.servicesCol}
             </h4>
             <ul className="space-y-2 text-xs text-slate-400">
               <li><a href="#aloqa" className="hover:text-cyan-400 transition-colors">14 kunlik Bepul Sinov</a></li>
@@ -126,7 +129,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           {/* Col 4: Contacts */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider font-mono">
-              Aloqa Ma'lumotlari
+              {t.footer.contactsCol}
             </h4>
             <ul className="space-y-2.5 text-xs text-slate-400">
               <li className="flex items-center gap-2">
@@ -144,7 +147,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <li className="pt-2">
                 <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 text-[11px] font-medium border border-emerald-500/20">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                  Qo'llab-quvvatlash: 24/7 faol
+                  {t.footer.support247}
                 </span>
               </li>
             </ul>
@@ -153,11 +156,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
         {/* Bottom copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-          <p>© 2026 GidroGo. Barcha huquqlar himoyalangan.</p>
+          <p>{t.footer.copyright}</p>
           <div className="flex items-center gap-1 text-slate-400">
-            <span>O'zbekistonda</span>
             <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />
-            <span>ichimlik suvi biznesi uchun mehr bilan yaratilgan</span>
+            <span>{t.footer.loveText}</span>
           </div>
         </div>
       </div>
