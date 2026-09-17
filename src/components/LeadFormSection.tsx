@@ -91,10 +91,10 @@ export const LeadFormSection: React.FC = () => {
               {/* Direct channels */}
               <div className="pt-6 border-t border-slate-800 space-y-3">
                 <p className="text-xs text-slate-400 uppercase font-mono">{t.leadForm.quickContact}:</p>
-                <div className="flex flex-col sm:flex-row gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   <a
                     href="tel:+998712000000"
-                    className="flex-1 p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500/40 text-xs text-slate-300 flex items-center gap-2.5 transition-all"
+                    className="p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500/40 text-xs text-slate-300 flex items-center gap-2.5 transition-all"
                   >
                     <Phone className="w-4 h-4 text-cyan-400" />
                     <span>+998 (71) 200-00-00</span>
@@ -103,10 +103,19 @@ export const LeadFormSection: React.FC = () => {
                     href="https://t.me/gidrogo_support"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 p-3 rounded-xl bg-cyan-950/40 border border-cyan-800/40 hover:bg-cyan-900/40 text-xs text-cyan-300 flex items-center gap-2.5 transition-all font-semibold"
+                    className="p-3 rounded-xl bg-cyan-950/40 border border-cyan-800/40 hover:bg-cyan-900/40 text-xs text-cyan-300 flex items-center gap-2.5 transition-all font-semibold"
                   >
                     <MessageSquare className="w-4 h-4 text-cyan-400" />
                     <span>{t.leadForm.tgChat}</span>
+                  </a>
+                  <a
+                    href="https://wa.me/998712000000"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="sm:col-span-2 p-3 rounded-xl bg-emerald-950/30 border border-emerald-800/40 hover:bg-emerald-900/30 text-xs text-emerald-300 flex items-center justify-center gap-2.5 transition-all font-semibold"
+                  >
+                    <span className="text-base">💬</span>
+                    <span>{t.leadForm.waChat}</span>
                   </a>
                 </div>
               </div>

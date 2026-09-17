@@ -1,4 +1,4 @@
-﻿import type { ProblemItem, SolutionFeature, ProcessStep, FaqItem, StatItem } from '../types';
+import type { ProblemItem, SolutionFeature, ProcessStep, FaqItem, StatItem, CaseStudyItem, TeamMember } from '../types';
 
 export const PROBLEMS_DATA: ProblemItem[] = [
   {
@@ -252,3 +252,94 @@ export const FAQ_DATA: FaqItem[] = [
     answer: "Umuman kerak emas! GidroGo shunday sodda va intuitiv yaratilganki, suv ishlab chiqaruvchi biznes egasi ham, haydovchi ham uni 15 daqiqada bemalol tushunib oladi. 24/7 texnik yordam xizmatimiz doimo aloqada.",
   },
 ];
+
+export const CASE_STUDIES_DATA: CaseStudyItem[] = [
+  {
+    id: 'case-1',
+    companyName: 'Aqua Pure Tech MCHJ',
+    location: 'Toshkent shahri & viloyati',
+    bottlesDaily: '850+ dona / kun',
+    couriersCount: '12 ta Labo & Damas',
+    quote: "GidroGo o'rnatilgunga qadar har oy 30-40 ta bo'sh 19L taramiz yo'qolib, kuryerlar chalkashib yurar edi. Tizimga o'tganimizdan so'ng, yo'qolish 0 ga tushdi, har bir haydovchimiz kuniga 25 km dan yoqilg'i tejamoqda!",
+    author: 'Sanjar Usmonov',
+    authorRole: 'Bosh direktor va ta\'sischi',
+    metrics: [
+      { label: 'Yoqilg\'i tejamkorligi', value: '28%' },
+      { label: 'Kuryer vaqti tejami', value: '2.5 soat/kun' },
+      { label: 'Yo\'qolgan taralar', value: '0 ta' },
+      { label: 'Foyda o\'sishi', value: '+32%' },
+    ],
+    beforeGidrogo: "Telefon va daftarda buyurtma qabul qilish, kechikishlar, taralar yo'qolishi.",
+    afterGidrogo: "Avtomatik smart-marshrut, to'liq moliyaviy ochiqlik va 1-klikda tahlil.",
+  },
+  {
+    id: 'case-2',
+    companyName: 'Crystal Springs O\'zbekiston',
+    location: 'Samarqand & Navoiy',
+    bottlesDaily: '1,200+ dona / kun',
+    couriersCount: '18 ta avtomobil',
+    quote: "Mijozlarning takroriy buyurtma chastotasi 40% ga oshdi. Endi dispetcherimiz 3 kishi emas, 1 kishi barcha 18 ta mashinani ekranda jonli boshqarmoqda.",
+    author: 'Alisher Qodirov',
+    authorRole: 'Logistika boshlig\'i',
+    metrics: [
+      { label: 'Dispetcherlik xarajati', value: '-65%' },
+      { label: 'Yetkazish tezligi', value: '25 daqiqa' },
+      { label: 'Mijozlar qoniqishi', value: '99.4%' },
+      { label: 'Qayta buyurtmalar', value: '+40%' },
+    ],
+    beforeGidrogo: "Telegram guruhlarda xabarlar yo'qolishi, mijozlar kutib qolishi.",
+    afterGidrogo: "Smart bot va ilova orqali bir soniyada buyurtma, mamnun mijozlar.",
+  },
+  {
+    id: 'case-3',
+    companyName: 'Zomin Tog\' Suvi',
+    location: 'Jizzax, Guliston, Toshkent',
+    bottlesDaily: '600+ dona / kun',
+    couriersCount: '8 ta avtomobil',
+    quote: "Har kuni kechki hisob-kitob 3 soat vaqt olar edi. GidroGo bilan kassa, Click, Payme va haydovchilar hisoboti bir tugma bilan tayyor bo'ladi.",
+    author: 'Nodira Bekmurodova',
+    authorRole: 'Bosh hisobchi & moliya direktori',
+    metrics: [
+      { label: 'Hisobot tayyorlash', value: '1 daqiqa' },
+      { label: 'Hisobdagi xatoliklar', value: '0%' },
+      { label: 'Tushum nazorati', value: '100% shaffof' },
+      { label: 'Oylik tejamkorlik', value: '18 mln so\'m' },
+    ],
+    beforeGidrogo: "Kechqurun naqd pul va qarzlar chalkashishi, tushum yo'qotilishi.",
+    afterGidrogo: "Real vaqtda to'lovlar, avtomatik fiskal kvitansiyalar.",
+  },
+];
+
+export const TEAM_DATA: TeamMember[] = [
+  {
+    name: 'Humoyun Anvarov',
+    role: 'Loyiha Asoschisi & Bosh Mahsulot Rahbari (CEO)',
+    bio: 'SaaS tizimlari, logistika texnologiyalari va raqamli transformatsiya bo\'yicha 6+ yillik xalqaro tajribaga ega.',
+    initials: 'HA',
+    gradient: 'from-cyan-500 to-blue-600',
+  },
+  {
+    name: 'Davron Toshmatov',
+    role: 'Bosh Texnik Direktor (CTO)',
+    bio: 'Yuqori yuklamali geo-monitoring, xaritalar integratsiyasi va xavfsiz ma\'lumotlar bazasi arxitektori.',
+    initials: 'DT',
+    gradient: 'from-blue-600 to-indigo-600',
+  },
+  {
+    name: 'Sardor Rahimov',
+    role: 'Logistika & Mijozlar Bilan Ishlash Rahbari (COO)',
+    bio: 'Suv ta\'minoti fermalari va kuryerlar tarmog\'i bilan ishlash, biznes jarayonlarni avtomatlashtirish mutaxassisi.',
+    initials: 'SR',
+    gradient: 'from-indigo-600 to-purple-600',
+  },
+];
+
+export const PARTNERS_DATA = [
+  { name: "Aqua Pure Tech", icon: "💧", bottles: "50,000+ yetkazilgan" },
+  { name: "Crystal Springs", icon: "💎", bottles: "75,000+ yetkazilgan" },
+  { name: "Zomin Tog' Suvi", icon: "🏔️", bottles: "40,000+ yetkazilgan" },
+  { name: "HydroLife Farm", icon: "🌱", bottles: "30,000+ yetkazilgan" },
+  { name: "Silver Water Group", icon: "✨", bottles: "60,000+ yetkazilgan" },
+  { name: "Oasis Bottlers", icon: "🌊", bottles: "25,000+ yetkazilgan" },
+];
+

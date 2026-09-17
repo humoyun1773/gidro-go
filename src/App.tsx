@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { ProblemSection } from './components/ProblemSection';
@@ -8,6 +8,8 @@ import { LiveDashboardPreview } from './components/LiveDashboardPreview';
 import { AudienceSection } from './components/AudienceSection';
 import { RoiCalculator } from './components/RoiCalculator';
 import { BenefitsStats } from './components/BenefitsStats';
+import { TeamPartnersSection } from './components/TeamPartnersSection';
+import { CaseStudiesSection } from './components/CaseStudiesSection';
 import { FaqSection } from './components/FaqSection';
 import { LeadFormSection } from './components/LeadFormSection';
 import { AboutPage } from './components/AboutPage';
@@ -28,7 +30,7 @@ export function App() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-cyan-500 selection:text-slate-950 font-sans antialiased overflow-x-hidden">
-      {/* Sticky Modern Navbar with Page Routing */}
+      {/* Sticky Modern Navbar with Page Routing & Language Switcher */}
       <Navbar 
         currentPage={currentPage}
         onNavigate={(page) => setCurrentPage(page)}
@@ -39,34 +41,40 @@ export function App() {
       <main>
         {currentPage === 'home' ? (
           <>
-            {/* 1. Hero Section */}
+            {/* TZ 3.1: Hero Section */}
             <Hero onOpenDemoModal={handleOpenDemoModal} />
 
-            {/* 2. Problem Section (8 traditional problems) */}
+            {/* TZ 3.2: Problem Section (8 traditional water business problems) */}
             <ProblemSection />
 
-            {/* 3. Solution Section (Unified GidroGo SaaS Platform) */}
+            {/* TZ 3.3: Solution Section (Unified GidroGo SaaS Platform Features) */}
             <SolutionSection />
 
-            {/* 4. Process Workflow (6-step pipeline from order to stats) */}
+            {/* TZ 3.3: "Qanday ishlaydi" — 6-Step Workflow Process Chain */}
             <HowItWorks />
 
-            {/* 5. Interactive Live Dashboard Preview */}
+            {/* Live Interactive Dashboard Preview */}
             <LiveDashboardPreview />
 
-            {/* 6. Audience Targeting (Water Farms / Companies & Consumers) */}
+            {/* TZ 3.4: Audience Targeting (1. Water Businesses / Farms, 2. Consumers) */}
             <AudienceSection onOpenDemoModal={handleOpenDemoModal} />
 
-            {/* 7. Interactive ROI Savings Calculator */}
+            {/* Interactive ROI Savings Calculator */}
             <RoiCalculator onOpenDemoModal={handleOpenDemoModal} />
 
-            {/* 8. Benefits, Verified Metrics & Partner Trust Brands */}
+            {/* TZ 3.5: Benefits & Verified Metrics */}
             <BenefitsStats />
 
-            {/* 9. FAQ Section */}
+            {/* TZ 3.6: Jamoa / Hamkorlar (Founders & Partner Water Brands) */}
+            <TeamPartnersSection />
+
+            {/* TZ 3.7: Mijozlar fikri / Case Study (Real Client Results & Before/After) */}
+            <CaseStudiesSection onOpenDemoModal={handleOpenDemoModal} />
+
+            {/* TZ 3.8: FAQ Section (Accordion Format) */}
             <FaqSection />
 
-            {/* 10. Final High-Conversion Lead Form Section */}
+            {/* TZ 3.9: Final High-Conversion CTA & Lead Form + Telegram/WhatsApp */}
             <LeadFormSection />
           </>
         ) : (
@@ -78,7 +86,7 @@ export function App() {
         )}
       </main>
 
-      {/* Footer with page switching support */}
+      {/* TZ 3.10: Footer with Page Switching & Complete Requisites */}
       <Footer onNavigate={(page) => setCurrentPage(page)} />
 
       {/* Interactive Demo Request Modal */}

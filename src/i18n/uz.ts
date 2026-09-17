@@ -436,6 +436,24 @@ export const uz: Translations = {
       }
     ]
   },
+  "caseStudies": {
+    "badge": "Mijozlar Natijalari & Case Study",
+    "title": "GidroGo Tizimida Ishlayotgan",
+    "titleHighlight": "Fermalar Natijalari",
+    "subtitle": "Biznes egalari va fermalar boshliqlari real vaqtda qanday samara, tejamkorlik va o'sishga erishganliklari haqida so'zlaydilar.",
+    "beforeLabel": "GidroGodan oldin:",
+    "afterLabel": "GidroGodan keyin:",
+    "resultsLabel": "Erishilgan oylik ko'rsatkichlar:"
+  },
+  "teamPartners": {
+    "teamBadge": "Bizning Jamoa",
+    "teamTitle": "GidroGo Loyihasi",
+    "teamHighlight": "Asoschilari va Rahbariyati",
+    "teamSubtitle": "IT arxitektorlari, logistika injenerlari va mahsulot menejerlaridan iborat professional jamoa.",
+    "partnersBadge": "Hamkorlarimiz",
+    "partnersTitle": "50 dan ortiq yetakchi suv korxonalari va fermalari",
+    "partnersSubtitle": "O'zbekistonning barcha viloyatlarida GidroGo SaaS platformasiga ishonishadi"
+  },
   "leadForm": {
     "badge": "14 kunlik bepul sinov davri",
     "title": "Biznesingizni Bugun",
@@ -446,6 +464,7 @@ export const uz: Translations = {
     "check3": "24/7 shaxsiy texnik menejer yordami",
     "quickContact": "Tezkor aloqa:",
     "tgChat": "Telegram orqali yozish",
+    "waChat": "WhatsApp orqali yozish",
     "formTitle": "Bepul Konsultatsiya & Demo Olish",
     "nameLabel": "Ismingiz va Familiyangiz *",
     "namePlaceholder": "Masalan: Sardor Aliyev",

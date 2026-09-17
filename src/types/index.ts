@@ -1,4 +1,4 @@
-﻿export interface ProblemItem {
+export interface ProblemItem {
   id: string;
   title: string;
   description: string;
@@ -50,3 +50,29 @@ export interface StatItem {
   change: string;
   description: string;
 }
+
+export interface CaseStudyItem {
+  id: string;
+  companyName: string;
+  location: string;
+  bottlesDaily: string;
+  couriersCount: string;
+  quote: string;
+  author: string;
+  authorRole: string;
+  metrics: {
+    label: string;
+    value: string;
+  }[];
+  beforeGidrogo: string;
+  afterGidrogo: string;
+}
+
+export interface TeamMember {
+  name: string;
+  role: string;
+  bio: string;
+  initials: string;
+  gradient: string;
+}
+

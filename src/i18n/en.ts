@@ -436,6 +436,24 @@ export const en: Translations = {
       }
     ]
   },
+  "caseStudies": {
+    "badge": "Customer Results & Case Studies",
+    "title": "Proven Results From",
+    "titleHighlight": "Active Water Plants",
+    "subtitle": "Water plant executives and logistics managers share verified data on time savings and revenue growth.",
+    "beforeLabel": "Before GidroGo:",
+    "afterLabel": "After implementing GidroGo:",
+    "resultsLabel": "Verified monthly metrics:"
+  },
+  "teamPartners": {
+    "teamBadge": "Our Team",
+    "teamTitle": "GidroGo Leadership",
+    "teamHighlight": "& Key Founders",
+    "teamSubtitle": "A specialized squad of IT architects, logistics engineers, and product experts with 6+ years of SaaS mastery.",
+    "partnersBadge": "Trusted Partners",
+    "partnersTitle": "Over 50 leading water production plants and distribution farms",
+    "partnersSubtitle": "Rely on GidroGo SaaS platform across all provinces of Uzbekistan"
+  },
   "leadForm": {
     "badge": "14-Day Free Trial",
     "title": "Digitize Your Business",
@@ -446,6 +464,7 @@ export const en: Translations = {
     "check3": "24/7 dedicated personal technical manager",
     "quickContact": "Quick contact:",
     "tgChat": "Message on Telegram",
+    "waChat": "Chat on WhatsApp",
     "formTitle": "Free Consultation & Live Demo",
     "nameLabel": "Full Name *",
     "namePlaceholder": "e.g. Sardor Aliyev",

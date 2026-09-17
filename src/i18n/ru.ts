@@ -436,6 +436,24 @@ export const ru: Translations = {
       }
     ]
   },
+  "caseStudies": {
+    "badge": "Результаты Клиентов и Кейсы",
+    "title": "Практические Результаты",
+    "titleHighlight": "Клиентов GidroGo",
+    "subtitle": "Руководители заводов и служб доставки делятся реальными цифрами экономии и роста продаж.",
+    "beforeLabel": "До внедрения GidroGo:",
+    "afterLabel": "После перехода на GidroGo:",
+    "resultsLabel": "Достигнутые ежемесячные метрики:"
+  },
+  "teamPartners": {
+    "teamBadge": "Команда Проекта",
+    "teamTitle": "Основатели и Руководство",
+    "teamHighlight": "Платформы GidroGo",
+    "teamSubtitle": "IT-архитекторы, инженеры логистики и специалисты по цифровизации с опытом более 6 лет.",
+    "partnersBadge": "Наши Партнеры",
+    "partnersTitle": "Более 50 ведущих производителей и поставщиков воды",
+    "partnersSubtitle": "Доверяют платформе GidroGo по всему Узбекистану"
+  },
   "leadForm": {
     "badge": "14 дней бесплатного тест-драйва",
     "title": "Оцифруйте Бизнес",
@@ -446,6 +464,7 @@ export const ru: Translations = {
     "check3": "Персональный менеджер поддержки 24/7",
     "quickContact": "Быстрая связь:",
     "tgChat": "Написать в Telegram",
+    "waChat": "Написать в WhatsApp",
     "formTitle": "Бесплатная Консультация и Демо",
     "nameLabel": "Ваше имя и фамилия *",
     "namePlaceholder": "Например: Сардор Алиев",

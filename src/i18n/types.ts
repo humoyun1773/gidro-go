@@ -1,4 +1,4 @@
-﻿export type Language = 'uz' | 'ru' | 'en';
+export type Language = 'uz' | 'ru' | 'en';
 
 export interface Translations {
   nav: {
@@ -188,6 +188,24 @@ export interface Translations {
       answer: string;
     }[];
   };
+  caseStudies: {
+    badge: string;
+    title: string;
+    titleHighlight: string;
+    subtitle: string;
+    beforeLabel: string;
+    afterLabel: string;
+    resultsLabel: string;
+  };
+  teamPartners: {
+    teamBadge: string;
+    teamTitle: string;
+    teamHighlight: string;
+    teamSubtitle: string;
+    partnersBadge: string;
+    partnersTitle: string;
+    partnersSubtitle: string;
+  };
   leadForm: {
     badge: string;
     title: string;
@@ -198,6 +216,7 @@ export interface Translations {
     check3: string;
     quickContact: string;
     tgChat: string;
+    waChat: string;
     formTitle: string;
     nameLabel: string;
     namePlaceholder: string;
