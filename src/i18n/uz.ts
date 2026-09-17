@@ -50,8 +50,8 @@ export const uz: Translations = {
   },
   "problems": {
     "badge": "Eski usulda ishlashning zararlari",
-    "title": "An'anaviy suv yetkazib berishdagi",
-    "titleHighlight": "8 ta asosiy muammo",
+    "title": "An'anaviy suv yetkazib berish biznesidagi",
+    "titleHighlight": "muammolar",
     "subtitle": "Daftarlar, tarqoq Telegram guruhlari va telefon qo'ng'iroqlari orqali ishlash biznesingizga har kuni vaqt, pul va mijozlar yo'qotilishiga sabab bo'lmoqda.",
     "damageLabel": "Zarar:",
     "ctaBannerText": "Siz ham har oy millionlab so'm va mijozlaringizni yo'qotyapsizmi?",

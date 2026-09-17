@@ -106,6 +106,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <li><a href="#yechim" onClick={() => handleNav('home')} className="hover:text-cyan-400 transition-colors">{t.nav.solution}</a></li>
               <li><a href="#jarayon" onClick={() => handleNav('home')} className="hover:text-cyan-400 transition-colors">{t.nav.howItWorks}</a></li>
               <li><a href="#dashboard" onClick={() => handleNav('home')} className="hover:text-cyan-400 transition-colors">{t.nav.dashboard}</a></li>
+              <li><a href="#natijalar" onClick={() => handleNav('home')} className="hover:text-cyan-400 transition-colors">Case Studies</a></li>
+              <li><a href="#jamoa" onClick={() => handleNav('home')} className="hover:text-cyan-400 transition-colors">Jamoa & Hamkorlar</a></li>
               <li><a href="#kalkulyator" onClick={() => handleNav('home')} className="hover:text-cyan-400 transition-colors">{t.nav.calculator}</a></li>
               <li><a href="#faq" onClick={() => handleNav('home')} className="hover:text-cyan-400 transition-colors">{t.nav.faq}</a></li>
             </ul>
